@@ -1,14 +1,16 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Protegida</title>
-  <!-- Link para o Firebase e outras bibliotecas -->
+  <!-- Link para o Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
+
   <style>
     body {
       background-color: #000; /* Fundo preto */
@@ -39,36 +41,37 @@
   </style>
 </head>
 <body>
+
   <div class="container">
     <h1>Conteúdo Premium</h1>
     <p>Bem-vindo à página exclusiva para membros com assinatura ativa!</p>
   </div>
 
-  <!-- Adiciona o script do Firebase e o seu auth.js -->
-  <script src="auth.js"></script> <!-- Este arquivo deve estar no mesmo diretório que o index.html -->
-  
+  <!-- Adiciona o script do Firebase e o código de autenticação -->
   <script>
     // Configuração do Firebase
     const firebaseConfig = {
-      apiKey: "AIzaSyAO3As6jMMmENtzaK9zlDADbpS9UlNxx8o",
-      authDomain: "mac-projeto-4e552.firebaseapp.com",
-      projectId: "mac-projeto-4e552",
-      storageBucket: "mac-projeto-4e552.appspot.com",
-      messagingSenderId: "537330451519",
-      appId: "1:537330451519:web:5a1b4c921119b5ee98e48a"
+      apiKey: "AIzaSyAO3As6jMMmENtzaK9zlDADbpS9UlNxx8o", // Sua API Key
+      authDomain: "mac-projeto-4e552.firebaseapp.com", // Seu Auth Domain
+      projectId: "mac-projeto-4e552", // Seu Project ID
+      storageBucket: "mac-projeto-4e552.appspot.com", // Seu Storage Bucket
+      messagingSenderId: "537330451519", // Seu Sender ID
+      appId: "1:537330451519:web:5a1b4c921119b5ee98e48a" // Seu App ID
     };
 
+    // Inicializa o Firebase
     const app = firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // Verificação de autenticação ao carregar a página
+    // Verifica se o usuário está autenticado
     auth.onAuthStateChanged((user) => {
       if (!user) {
         // Se o usuário não estiver autenticado, redireciona para a página de login
-        window.location.href = 'login.html';
+        window.location.href = 'login.html'; 
       }
     });
   </script>
+
 </body>
 </html>
 
